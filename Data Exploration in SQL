@@ -1,0 +1,9 @@
+
+--Find the top publishers with the highest sales growth rate:
+
+SELECT Publisher, (MAX(Global_Sales) - MIN(Global_Sales)) / MIN(Global_Sales) AS SalesGrowthRate
+FROM `my-first-data-project-65584.vg_dataset.video_games`
+GROUP BY Publisher
+HAVING COUNT(DISTINCT Year) > 1
+ORDER BY SalesGrowthRate DESC
+LIMIT 10;
